@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Navbar = () => {
+
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {
+      
+    })
+    .catch(error => console.log(error))
+  }
 
 // const hoverBg = "transition-colors duration-200 hover:bg-green-600";
 
@@ -38,9 +50,18 @@ const Navbar = () => {
     <button className="btn border-0 bg-blue-500 hover:bg-blue-700 text-white font-bold">
         <Link to='/register'>Register</Link>
     </button>
-    <button className="btn ml-2">
+    {
+      user?.email?
+      
+      <button onClick={handleLogOut} className="btn ml-2">
+    Logout
+    </button>
+    :
+      <button className="btn ml-2">
     <Link to='/login'>Login</Link>
     </button>
+      
+    }
   
   </div>
 </div>

@@ -1,14 +1,17 @@
 
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2'
 
 
 
 
 const SignUp = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, logOut} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -16,7 +19,18 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirm = form.confirm.value;
         const photo = form.photo.value;
+        setError('');
+
+        if(password !== confirm){
+            setError('Your password did not match')
+            return
+        }else if(password.length < 6 ){
+            setError('Password must be at least 6 characters or longer ')
+            return
+        }
+      
         
         console.log(name, email, password, photo);
 
@@ -24,7 +38,16 @@ const SignUp = () => {
         .then(result => {
             const user =result.user;
             console.log(user)
-            form.reset();
+            
+            
+                form.reset();
+            Swal.fire(
+              'Success!',
+              'Your Account has been created! Please Login to continue.',
+              'success'
+            )
+            logOut();
+                navigate('/login');
         })
         .catch(error => console.log(error))
     
@@ -39,6 +62,7 @@ const SignUp = () => {
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
             <h1 className="text-3xl font-bold text-center">Sign Up now!</h1>
+            
              <form onSubmit={handleSignUp}>
              <div className="form-control">
                 <label className="label">
@@ -61,7 +85,14 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">Confirm Password</span>
+                </label>
+                <input type="password" name='confirm' placeholder="password" className="input input-bordered" />
+                
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo url</span>
                 </label>
                 <input type="url" name='photo' placeholder="Photo url" className="input input-bordered" />
                 
@@ -70,6 +101,7 @@ const SignUp = () => {
             
                 <input type="submit" value="SignUp" className="btn btn-primary"/>
               </div>
+              <p className='text-red-600 text-xl text-center'>{error}</p>
              </form>
              <p className='my-4 text-center'>Already a member ? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
             </div>
