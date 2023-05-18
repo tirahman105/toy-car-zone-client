@@ -22,6 +22,9 @@ const Navbar = () => {
     <li className="text-orange-700"><Link to='/'>Home</Link></li>
     <li className="text-orange-700"><Link to='/alltoys'>All Toys</Link></li>
     <li className="text-orange-700"><Link to='/addtoy'>Add New Toy</Link></li>
+    {
+      user? <li className="text-orange-700"><Link to='/mytoys'>My Toys</Link></li>: ""
+    }
     <li className="text-orange-700"><Link to='/blogs'>Blogs</Link></li>
    
 

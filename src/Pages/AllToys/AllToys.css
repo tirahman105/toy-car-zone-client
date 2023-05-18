@@ -1,0 +1,4 @@
+.card-image {
+    height: 200px; /* Adjust the height to your desired value */
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+  }

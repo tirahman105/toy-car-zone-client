@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../providers/AuthProvider";
 const AddAToy = () => {
+
+    const {user} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
     
   } = useForm();
@@ -21,6 +26,8 @@ const AddAToy = () => {
         .then(res => res.json())
         .then(data => {
           console.log(data);
+          alert("Toy added successfully!");
+          reset();
          
         })
   
@@ -103,7 +110,7 @@ const AddAToy = () => {
               Rating
             </label>
             <input
-              type="number"
+              type="text"
               id="rating"
               placeholder="Rating"
               {...register("Rating", { required: true })}
@@ -118,6 +125,7 @@ const AddAToy = () => {
             <input
               type="text"
               id="sellerName"
+              defaultValue={user?.displayName}
               placeholder="Seller Name"
               {...register("SellerName", { required: true })}
               className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
@@ -131,8 +139,9 @@ const AddAToy = () => {
             <input
               type="text"
               id="sellerEmail"
+              defaultValue={user?.email}
               placeholder="Seller Email"
-              {...register("SellerEmail", { required: true })}
+              {...register("email", { required: true })}
               className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
             />
           </div>
@@ -155,7 +164,7 @@ const AddAToy = () => {
             </label>
             <textarea
               id="details"
-              {...register("Details", { required: true, maxLength: 16 })}
+              {...register("Details", { required: true })}
               className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
             ></textarea>
           </div>
