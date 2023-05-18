@@ -47,9 +47,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <button className="btn border-0 bg-blue-500 hover:bg-blue-700 text-white font-bold">
-        <Link to='/register'>Register</Link>
-    </button>
+    
     {
       user?.email?
       
@@ -66,9 +64,16 @@ const Navbar = () => {
     
      </>
     :
+      <>
+      
       <button className="btn ml-2">
     <Link to='/login'>Login</Link>
     </button>
+    <button className="btn ml-2 border-0 bg-blue-500 hover:bg-blue-700 text-white font-bold">
+        <Link to='/register'>Register</Link>
+    </button>
+      </>
+      
       
     }
   

@@ -1,18 +1,22 @@
 
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
 import { updateProfile } from 'firebase/auth';
+import { FcGoogle } from "react-icons/fc";
+
 
 
 
 
 const SignUp = () => {
 
-    const {createUser, logOut} = useContext(AuthContext);
+    const {createUser, logOut ,signInWithGoogle} = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -56,6 +60,19 @@ const SignUp = () => {
         .catch(error => console.log(error))
     
     }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+        .then(result => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+          navigate(from), {replace: true};
+      
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
@@ -108,6 +125,8 @@ const SignUp = () => {
               <p className='text-red-600 text-xl text-center'>{error}</p>
              </form>
              <p className='my-4 text-center'>Already a member ? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
+             <div className="divider">OR</div>
+            <button onClick={handleGoogleSignIn} className=" flex align-middle justify-center bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"> <FcGoogle className="text-2xl me-2"></FcGoogle> <span>Continue with Google</span></button>
             </div>
           </div>
         </div>
