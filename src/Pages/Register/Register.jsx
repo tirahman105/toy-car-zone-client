@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
+import { updateProfile } from 'firebase/auth';
 
 
 
@@ -36,8 +37,11 @@ const SignUp = () => {
 
         createUser(email, password)
         .then(result => {
-            const user =result.user;
-            console.log(user)
+            const createdUser =result.user;
+            console.log(createdUser)
+            updateProfile(createdUser, {
+                displayName : name, photoURL: photo
+              });
             
             
                 form.reset();

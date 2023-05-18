@@ -53,9 +53,18 @@ const Navbar = () => {
     {
       user?.email?
       
+     <>
       <button onClick={handleLogOut} className="btn ml-2">
     Logout
     </button>
+    <div className="avatar placeholder">
+  <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+    <img src={user?.photoURL} title={user.displayName} alt="User image"/>
+  </div>
+</div>
+
+    
+     </>
     :
       <button className="btn ml-2">
     <Link to='/login'>Login</Link>
