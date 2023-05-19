@@ -43,14 +43,14 @@ const AllToyCategory = () => {
               >
                 Sports car
               </div>
-              <div
+              {/* <div
                 onClick={() => handleTabClick("police")}
                 className={`tab  tab-lifted police ${
                   activeTab == "police" ? " bg-red-500 text-white" : ""
                 }`}
               >
                 Police car
-              </div>
+              </div> */}
               <div
                 onClick={() => handleTabClick("truck")}
                 className={`tab  tab-lifted truck ${

@@ -18,14 +18,34 @@ const MyToys = () => {
     return (
         <div>
             <h1 className='text-3xl text-center'>My Toyes page: {allToys.length}</h1>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {
+
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            
+                            <th>Toy name</th>
+                            <th>Sub Category</th>
+                            <th>Price</th>
+                            <th>Available Quantity</th>
+                            <th>Seller Name</th>
+                            <th> Action</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
                             allToys.map(toy => <MyToyCard
                                 key={toy._id}
                                 toy={toy}
                             ></MyToyCard>)
                         }
+                    </tbody>
+
+                </table>
             </div>
+            
             
         </div>
     );

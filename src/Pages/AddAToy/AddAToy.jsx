@@ -75,7 +75,7 @@ const AddAToy = () => {
               <option value="regular">Regular car</option>
               <option value="sports">Sports car</option>
               <option value="truck">Truck</option>
-              <option value="police">Police car</option>
+              {/* <option value="police">Police car</option> */}
             </select>
           </div>
 
