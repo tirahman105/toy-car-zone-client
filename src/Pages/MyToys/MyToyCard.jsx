@@ -2,7 +2,7 @@ import React from 'react';
 
 const MyToyCard = ({toy}) => {
 
-    const {_id, ToyName, subCategory, Price, AvailableQuantity, Rating, SellerName, Pictureurl, Details, email} = toy;
+    const {_id, ToyName, SubCategory, Price, AvailableQuantity, Rating, SellerName, Pictureurl, Details, email} = toy;
     return (
         <div>
              <div  className="card bg-base-100 shadow-xl">

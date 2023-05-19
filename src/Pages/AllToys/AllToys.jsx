@@ -14,12 +14,16 @@ const AllToys = () => {
               <img className="card-image" src={toy?.Pictureurl} alt="Shoes" />
             </figure>
             <div className="card-body">
+              <span className="indicator-item indicator-top indicator-end badge badge-secondary">{toy?.SubCategory}</span>
               <h2 className="card-title">{toy?.ToyName}</h2>
               <p>
                 Price: <span>$ {toy.Price}</span>
               </p>
+              <p>
+                Available Quantity: {toy?.AvailableQuantity}
+              </p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+                <button className="btn btn-primary">View Detail</button>
               </div>
             </div>
           </div>
