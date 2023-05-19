@@ -14,7 +14,7 @@ const AllToys = () => {
               <img className="card-image" src={toy?.Pictureurl} alt="Shoes" />
             </figure>
             <div className="card-body">
-              <span className="indicator-item indicator-top indicator-end badge badge-secondary">{toy?.SubCategory}</span>
+              <span className="indicator-item indicator-top indicator-end badge badge-secondary">{toy?.SubCategory.toUpperCase()}</span>
               <h2 className="card-title">{toy?.ToyName}</h2>
               <p>
                 Price: <span>$ {toy.Price}</span>
