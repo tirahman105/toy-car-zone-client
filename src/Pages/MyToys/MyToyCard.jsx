@@ -40,6 +40,7 @@ const MyToyCard = ({ toy }) => {
 
 
   return (
+    <>
     <tr>
       <td>{ToyName}</td>
       <td>{SubCategory}</td>
@@ -59,6 +60,7 @@ const MyToyCard = ({ toy }) => {
         </button>
       </th>
     </tr>
+    </>
   );
 };
 
