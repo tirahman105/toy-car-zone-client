@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
+  window.scrollTo(0,0);
   const {signIn ,signInWithGoogle} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

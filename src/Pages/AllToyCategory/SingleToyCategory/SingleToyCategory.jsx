@@ -1,9 +1,30 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const SingleToyCategory = ({singleToyCategory}) => {
 
-    const {_id, ToyName, SubCategory, Price, AvailableQuantity, Rating, SellerName, Pictureurl, Details, email} = singleToyCategory;
+    const {user} = useContext(AuthContext);
+    const {_id, ToyName, SubCategory, Price, AvailableQuantity, Ratings, SellerName, Pictureurl, Details, email} = singleToyCategory;
+
+    const handleViewDetails = () => {
+        if (user) {
+          
+          history.push(`/toys/${_id}`);
+        } else {
+          
+          
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Login first to see details!',
+           
+          })
+          history.push("/login"); 
+        }
+      };
     return (
         <div>
         <div  className="card bg-base-100 shadow-xl">
@@ -17,7 +38,7 @@ const SingleToyCategory = ({singleToyCategory}) => {
          </p>
          <div className="card-actions justify-end">
 
-         <Link to={`/toys/${_id}`}> <button className="btn btn-primary">View Details</button></Link>
+         <Link to={`/toys/${_id}`}> <button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
            
          </div>
        </div>
