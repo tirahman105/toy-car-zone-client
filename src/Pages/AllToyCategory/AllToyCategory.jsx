@@ -9,7 +9,7 @@ const AllToyCategory = () => {
    
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/${activeTab}`)
+        fetch(`https://toy-car-zone-server.vercel.app/toys/${activeTab}`)
           .then((res) => res.json())
           .then((result) => {
             setAllToyCategory(result);

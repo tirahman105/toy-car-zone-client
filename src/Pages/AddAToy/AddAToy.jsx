@@ -16,7 +16,7 @@ const AddAToy = () => {
   
   {
 
-    fetch('http://localhost:5000/toys', {
+    fetch('https://toy-car-zone-server.vercel.app/toys', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -72,10 +72,10 @@ const AddAToy = () => {
               {...register("SubCategory", { required: true })}
               className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
             >
-              <option value="Regular car">Regular car</option>
-              <option value="Sports car">Sports car</option>
-              <option value="Truck">Truck</option>
-              <option value="Police car">Police car</option>
+              <option value="regular">Regular car</option>
+              <option value="sports">Sports car</option>
+              <option value="truck">Truck</option>
+              <option value="police">Police car</option>
             </select>
           </div>
 
@@ -113,7 +113,7 @@ const AddAToy = () => {
               type="text"
               id="rating"
               placeholder="Rating"
-              {...register("Rating", { required: true })}
+              {...register("Ratings", { required: true })}
               className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
             />
           </div>

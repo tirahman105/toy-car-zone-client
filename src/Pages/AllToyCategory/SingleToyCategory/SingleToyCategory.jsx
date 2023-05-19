@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from 'sweetalert2'
 
@@ -7,22 +7,21 @@ import Swal from 'sweetalert2'
 const SingleToyCategory = ({singleToyCategory}) => {
 
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
+    
     const {_id, ToyName, SubCategory, Price, AvailableQuantity, Ratings, SellerName, Pictureurl, Details, email} = singleToyCategory;
 
     const handleViewDetails = () => {
         if (user) {
-          
-          history.push(`/toys/${_id}`);
+          navigate(`/toys/${_id}`);
         } else {
-          
-          
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Please Login first to see details!',
-           
-          })
-          history.push("/login"); 
+            text: 'Please log in first to see details!',
+          }).then(() => {
+            navigate("/login");
+          });
         }
       };
     return (

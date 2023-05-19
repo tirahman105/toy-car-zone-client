@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import "./AllToys.css";
+import AllToyTable from "./AllToyTable";
 
 const AllToys = () => {
   const toys = useLoaderData();
@@ -7,28 +8,35 @@ const AllToys = () => {
   return (
     <div>
       <h1 className="text-3xl text-center">All Toyes page: {toys.length}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {toys.map((toy) => (
-          <div key={toy._id} className="card bg-base-100 shadow-xl">
-            <figure>
-              <img className="card-image" src={toy?.Pictureurl} alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <span className="indicator-item indicator-top indicator-end badge badge-secondary">{toy?.SubCategory.toUpperCase()}</span>
-              <h2 className="card-title">{toy?.ToyName}</h2>
-              <p>
-                Price: <span>$ {toy.Price}</span>
-              </p>
-              <p>
-                Available Quantity: {toy?.AvailableQuantity}
-              </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">View Detail</button>
-              </div>
+
+      <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            
+                            <th>Toy name</th>
+                            <th>Sub Category</th>
+                            <th>Price</th>
+                            <th>Available Quantity</th>
+                            <th>Seller Name</th>
+                            <th> Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                            toys.map(toy => <AllToyTable
+                                key={toy._id}
+                                toy={toy}
+                               
+                            ></AllToyTable>)
+                        }
+                    </tbody>
+
+                </table>
             </div>
-          </div>
-        ))}
-      </div>
+
+
     </div>
   );
 };

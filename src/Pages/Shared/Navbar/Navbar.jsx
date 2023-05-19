@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Navbar = () => {
 
   const {user, logOut} = useContext(AuthContext);
+  
 
   const handleLogOut = () => {
     logOut()
@@ -16,12 +18,25 @@ const Navbar = () => {
     .catch(error => console.log(error))
   }
 
+  const handleaddNewToyNav = () => {
+    if (user) {
+      window.location.href = '/addtoy';
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please log in first to add a new toy!',
+      }).then(() => {
+        window.location.href = '/login';
+      });
+    }
+  }
 // const hoverBg = "transition-colors duration-200 hover:bg-green-600";
 
   const navItems = <>
     <li className="text-orange-700"><Link to='/'>Home</Link></li>
     <li className="text-orange-700"><Link to='/alltoys'>All Toys</Link></li>
-    <li className="text-orange-700"><Link to='/addtoy'>Add New Toy</Link></li>
+    <li className="text-orange-700"><Link onClick={handleaddNewToyNav} to='/addtoy'>Add New Toy</Link></li>
     {
       user? <li className="text-orange-700"><Link to='/mytoys'>My Toys</Link></li>: ""
     }
