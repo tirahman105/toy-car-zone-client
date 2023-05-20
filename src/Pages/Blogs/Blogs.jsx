@@ -50,7 +50,7 @@ const Blogs = () => {
         </p>
         <p className="mb-4">
           To store access tokens on the client-side, they can be stored in
-          memory or in a browser's local storage. However, storing sensitive
+          memory or in a browser &apos;s local storage. However, storing sensitive
           tokens like access tokens in local storage can make them vulnerable to
           cross-site scripting (XSS) attacks. It is generally recommended to
           store access tokens in memory or use other secure storage mechanisms
@@ -64,7 +64,7 @@ const Blogs = () => {
           requests to the authentication server for obtaining new access tokens.
         </p>
         <p className="mb-4">
-          It's important to note that the specific storage mechanism for access
+          It&apos;s important to note that the specific storage mechanism for access
           and refresh tokens may vary depending on the authentication system and
           the security requirements of the application. It is recommended to
           follow best practices and security guidelines provided by the
