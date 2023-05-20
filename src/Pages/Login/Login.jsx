@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { FcGoogle } from "react-icons/fc";
+import { FaExclamation } from "react-icons/fa";
 
 
 const Login = () => {
   window.scrollTo(0,0);
   const {signIn ,signInWithGoogle} = useContext(AuthContext);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
@@ -29,7 +31,7 @@ const Login = () => {
               'success'
             )
         })
-        .catch(error => console.log(error));
+        .catch(err => setError(err.message));
 }
 
 
@@ -41,10 +43,13 @@ const handleGoogleSignIn = () => {
     navigate(from), {replace: true};
 
   })
-  .catch(error => {
-    console.log(error)
-  })
+  .catch(err => setError(err.message));
+  
 }
+
+setTimeout(() => {
+  setError('');
+}, 2500);
 
     return (
       <div className="hero min-h-screen bg-base-200">
@@ -55,6 +60,7 @@ const handleGoogleSignIn = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
+            
             <h1 className="text-3xl font-bold text-center">Login now!</h1>
              <form onSubmit={handleLogin}>
              
@@ -74,6 +80,7 @@ const handleGoogleSignIn = () => {
             
               <div className="form-control mt-6">
             
+             <div className='text-red-700 flex space-x-2 my-4 text-xl'> {error && <FaExclamation className='w-5 h-5  text-red-700'></FaExclamation>} <span>{error}</span> </div>
                 <input type="submit" value="Login" className="btn btn-primary"/>
               </div>
              </form>

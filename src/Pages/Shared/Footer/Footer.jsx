@@ -46,11 +46,11 @@ const Footer = () => {
     </div>
   </div>
 </footer>
-<footer className="footer footer-center p-4 bg-base-300 text-base-content">
-  <div>
+
+  <div className="footer footer-center p-4 bg-base-300 text-base-content">
     <p>Copyright © 2023 - All right reserved by AnonnoTa Ltd</p>
   </div>
-</footer>
+
         </div>
     );
 };
