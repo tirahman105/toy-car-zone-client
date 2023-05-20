@@ -3,7 +3,7 @@ import car  from "../../../assets/bg-car.png";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="w-full">
         
     
       <div className="hero min-h-screen bg-[#FDEEDC]">
