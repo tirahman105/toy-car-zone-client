@@ -107,24 +107,28 @@ const ReviewSection = () => {
       name: "John Doe",
       comment: "Great product! Highly recommended.",
       rating: 5,
+      image: "https://i.ibb.co/BBFRVPZ/man.png"
     },
     {
       id: 2,
       name: "Jane Smith",
       comment: "Excellent service. Will buy again.",
       rating: 4,
+      image: "https://i.ibb.co/j5zcrtn/man-2.png"
     },
     {
       id: 3,
       name: "Mike Johnson",
       comment: "Awesome experience. Love the quality.",
       rating: 5,
+      image: "https://previews.123rf.com/images/oksun70/oksun701406/oksun70140600038/28866868-kid-boy-and-his-dad-playing-with-a-video-game-together.jpg"
     },
     {
       id: 4,
       name: "Sarah Thompson",
       comment: "Fast shipping and great customer support.",
       rating: 4,
+      image: "https://i.ibb.co/SvZjGv5/man3.png"
     },
   ];
 
@@ -158,11 +162,11 @@ const ReviewSection = () => {
       <Slider {...sliderSettings}>
         {reviews.map((review) => (
           <div key={review.id} className="px-2">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <figure className="mb-4">
+            <div className="bg-white  hover:bg-[#FDEEDC] transition duration-300 ease-in-out rounded-lg shadow-md p-6">
+              <figure className="mb-4 ">
                 <img
-                  className="w-32 h-32 rounded-full mx-auto"
-                  src="https://via.placeholder.com/150"
+                  className="w-32 h-32 rounded-full mx-auto transform hover:scale-125 transition duration-300 ease-in-out"
+                  src={review.image}
                   alt="Reviewer"
                 />
               </figure>
