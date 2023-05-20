@@ -30,7 +30,7 @@ const SingleToyCategory = ({singleToyCategory}) => {
        <figure>
          <img className="card-image" src={Pictureurl} alt="Shoes" />
        </figure>
-       <div className="card-body">
+       <div className="card-body hover:bg-[#FDEEDC]">
          <h2 className="card-title">{ToyName}</h2>
          <p>
            Price: <span>$ {Price}</span>

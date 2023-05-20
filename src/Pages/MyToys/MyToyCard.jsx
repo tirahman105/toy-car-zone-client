@@ -165,27 +165,27 @@ const MyToyCard = ({ toy }) => {
     });
   };
 
-  const handleToyUpdate = (data) => {
-    console.log(data);
-    fetch(`https://toy-car-zone-server.vercel.app/updateToy/${data._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.modifiedCount > 0) {
-          setControl(!control);
-        }
-        console.log(result);
-      });
-  };
+  // const handleToyUpdate = (data) => {
+  //   console.log(data);
+  //   fetch(`https://toy-car-zone-server.vercel.app/updateToy/${data._id}`, {
+  //     method: "PUT",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       if (result.modifiedCount > 0) {
+  //         setControl(!control);
+  //       }
+  //       console.log(result);
+  //     });
+  // };
 
-  const openUpdateModal = (_id) => {
-    // Set the ID of the toy to be updated and show the modal
-    setToyIdToUpdate(_id);
-    setShowUpdateModal(true);
-  };
+  // const openUpdateModal = (_id) => {
+  //   // Set the ID of the toy to be updated and show the modal
+  //   setToyIdToUpdate(_id);
+  //   setShowUpdateModal(true);
+  // };
 
   return (
     <>
@@ -196,7 +196,7 @@ const MyToyCard = ({ toy }) => {
         <td>{AvailableQuantity}</td>
         <td>{SellerName}</td>
         <th>
-          <label htmlFor="my-modal-5" className="btn">
+          {/* <label htmlFor="my-modal-5" className="btn">
             {" "}
             <BsPencilSquare className="text-2xl" />
             Edit
@@ -211,7 +211,12 @@ const MyToyCard = ({ toy }) => {
               showUpdateModal={showUpdateModal}
               handleCloseUpdateModal={() => setShowUpdateModal(false)}
             />
-          )}
+          )} */}
+
+<Link to={`/update/${toy._id}`}>
+                            <button>Update</button>
+                        </Link>
+
         </th>
         <th>
           <button onClick={handleDelete} className="flex ">

@@ -10,6 +10,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Update from "../Pages/MyToys/Update";
 
 
 const router = createBrowserRouter([
@@ -48,6 +49,12 @@ const router = createBrowserRouter([
             element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
             
         },
+        {
+            path:"/update/:id",
+            element: <Update></Update>,
+            loader: ({params}) => fetch(`https://toy-car-zone-server.vercel.app/toysUpdate/${params.id}`)
+          },
+        
         {
             path:'/toys/:id',
             element: <PrivateRoute><ToyDetails></ToyDetails>,</PrivateRoute>,
