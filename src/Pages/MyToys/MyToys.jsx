@@ -54,7 +54,7 @@ const handleSearch = () =>{
             </button>
           </div>
         </div>
-        <table className="table w-full">
+        <table className="table w-full ">
           {/* head */}
           <thead>
             <tr>

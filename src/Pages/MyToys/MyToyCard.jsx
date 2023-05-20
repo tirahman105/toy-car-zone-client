@@ -3,10 +3,12 @@ import { BsPencilSquare } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
 import { useState } from "react";
 import Swal from 'sweetalert2';
+import UpdateMyToys from "./UpdateMyToys";
 
 const MyToyCard = ({ toy }) => {
   const loadedUsers = useLoaderData();
   const [toys, setToys] = useState(loadedUsers);
+  const [control, setControl] = useState(false);
   const { _id, ToyName, SubCategory, Price, AvailableQuantity, Rating, SellerName, Pictureurl, Details, email } = toy;
 
   const handleDelete = () => {
@@ -39,6 +41,24 @@ const MyToyCard = ({ toy }) => {
   };
 
 
+
+  const handleToyUpdate = (data) => {
+    console.log(data);
+    fetch(`https://toy-car-zone-server.vercel.app/updateToy/${data._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.modifiedCount > 0) {
+          setControl(!control);
+        }
+        console.log(result);
+      });
+  };
+
+
   return (
     <>
     <tr>
@@ -48,10 +68,23 @@ const MyToyCard = ({ toy }) => {
       <td>{AvailableQuantity}</td>
       <td>{SellerName}</td>
       <th>
-        <button className="flex ">
+      {/* <UpdateMyToys
+          
+          >
+        <button htmlFor="my-modal-5" className="flex ">
           <BsPencilSquare className="text-2xl" />
-          <span>Update</span>
+          <span>Update
+         </span>
+          
         </button>
+</UpdateMyToys> */}
+<label htmlFor="my-modal-5" className="btn"> <BsPencilSquare className="text-2xl" />Edit</label>
+<UpdateMyToys toy={toy}
+handleToyUpdate ={handleToyUpdate}>
+  
+</UpdateMyToys>
+
+
       </th>
       <th>
         <button onClick={handleDelete} className="flex ">
