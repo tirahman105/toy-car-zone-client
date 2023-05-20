@@ -1,6 +1,7 @@
 import AllToyCategory from "../../AllToyCategory/AllToyCategory";
 import Banner from "../Banner/Banner";
-import Extra from "../Extra/Extra";
+import ReviewSection from "../Extra/ReviewSection";
+
 import Feature from "../Feature/Feature";
 import ImgGallery from "../ImgGallery/ImgGallery";
 
@@ -12,9 +13,10 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Feature></Feature>
-            <Extra></Extra>
+            
             <AllToyCategory></AllToyCategory>
             <ImgGallery></ImgGallery>
+            <ReviewSection></ReviewSection>
         </div>
     );
 };
