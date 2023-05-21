@@ -83,7 +83,7 @@ const SingleToyCategory = ({singleToyCategory}) => {
 
     <div className="mt-4 flex justify-end">
       <Link to={`/toys/${_id}`}>
-        <button className="btn  transition duration-300 hover:bg-blue-500 hover:text-white">
+        <button className="btn bg-[#D36F3F] hover:bg-blue-700 transition duration-300  hover:text-white">
           View Details
         </button>
       </Link>

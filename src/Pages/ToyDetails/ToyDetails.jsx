@@ -43,7 +43,7 @@ const ToyDetails = () => {
         Details:  {Details}
         </p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Order Now</button>
+            <button className="btn bg-[#D36F3F] hover:bg-blue-700">Order Now</button>
           </div>
         </div>
       </div>

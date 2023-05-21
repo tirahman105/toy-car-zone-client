@@ -95,7 +95,7 @@ setTimeout(() => {
               <div className="form-control mt-6">
             
              
-                <input type="submit" value="Login" className="btn btn-primary"/>
+                <input type="submit" value="Login" className="btn bg-[#D36F3F] hover:bg-blue-700"/>
               </div>
              </form>
              <p className='my-4 text-center'>Do not have an account ? <Link className='text-orange-600 font-bold' to="/register">Register now!</Link> </p>

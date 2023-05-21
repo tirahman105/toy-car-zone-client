@@ -18,7 +18,7 @@ const Banner = () => {
             <p className="py-6">
              Let Your Child's Imagination Drive Wild with Our Toy Cars!
             </p>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button className="bg-[#D36F3F] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
   All Toys
 </button>
           </div>

@@ -26,7 +26,7 @@ const AllToyTable = ({ toy, index }) => {
       <td>{AvailableQuantity}</td>
       <td>{SellerName}</td>
       <th>
-      <Link to={`/toys/${_id}`}> <button className="btn btn-primary">View Details</button></Link>
+      <Link to={`/toys/${_id}`}> <button className="btn bg-[#D36F3F] hover:bg-blue-700">View Details</button></Link>
       </th>
     </tr>
   );

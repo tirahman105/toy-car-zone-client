@@ -147,7 +147,7 @@ setTimeout(() => {
               </div>
               <div className="form-control mt-6">
             
-                <input type="submit" value="SignUp" className="btn btn-primary"/>
+                <input type="submit" value="SignUp" className="btn bg-[#D36F3F] hover:bg-blue-700"/>
               </div>
               <p className='text-red-600 text-xl text-center'>{error}</p>
              </form>

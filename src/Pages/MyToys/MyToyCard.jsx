@@ -66,7 +66,7 @@ const MyToyCard = ({ toy , index}) => {
         <td>{SellerName}</td>
         <th>
 <Link to={`/update/${toy._id}`}>
-                            <button>   <BsPencilSquare className="text-2xl" /> Update</button>
+                            <button >   <BsPencilSquare className="text-2xl" /> Update</button>
                         </Link>
 
         </th>
