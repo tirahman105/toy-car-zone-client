@@ -68,7 +68,7 @@ const handleSearch = () =>{
             </tr>
           </thead>
           <tbody>
-            {allToys.map((toy) => (
+            {allToys?.map((toy) => (
               <MyToyCard key={toy._id} toy={toy}></MyToyCard>
             ))}
           </tbody>
