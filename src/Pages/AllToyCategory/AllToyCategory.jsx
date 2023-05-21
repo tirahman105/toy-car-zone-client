@@ -22,7 +22,8 @@ const AllToyCategory = () => {
       };
     return (
         <div>
-        <h1 className=" text-3xl text-center mt-5 p-5">Toy cars</h1>
+        <h1 className=" text-3xl text-center mt-5 p-5">Shop By Category</h1>
+        <div className="divider px-10"></div>
 
      
         

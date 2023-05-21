@@ -93,8 +93,9 @@ const AddAToy = () => {
             <input
               type="number"
               id="price"
+              step="any"
               placeholder="Price"
-              {...register("Price", { required: true, min: 0, maxLength: 100 })}
+              {...register("Price", { required: true })}
               className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
             />
           </div>

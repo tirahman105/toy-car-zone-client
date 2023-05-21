@@ -10,7 +10,8 @@ const Feature = () => {
   },[])
   return (
     <div className="px-7 mb-5">
-      <h1 className="text-center text-3xl">Feature section</h1>
+      <h1 className="text-center text-3xl my-4">Feature section</h1>
+     <div className="divider"></div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-3">
         <div className="flex flex-col mx-auto  gap-1">
         <div className="card" data-aos ="fade-right">
