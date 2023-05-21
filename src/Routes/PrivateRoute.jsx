@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
 
     }
 
-    if(user?.email){
+    if(user){
         return children;
     }
 

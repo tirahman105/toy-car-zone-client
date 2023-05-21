@@ -54,7 +54,7 @@ const AddAToy = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="p-7 bg-white rounded shadow-md"
       >
-         <h1 className="text-3xl text-center">Add a toy</h1>
+         <h1 className="text-3xl text-center font-semibold my-4">Add a toy</h1>
          <div className="divider"></div> 
         <div className="grid grid-cols-2 gap-4">
           <div>

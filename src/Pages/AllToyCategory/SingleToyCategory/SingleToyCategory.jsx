@@ -19,9 +19,7 @@ const SingleToyCategory = ({singleToyCategory}) => {
             icon: 'error',
             title: 'Oops...',
             text: 'Please log in first to see details!',
-          }).then(() => {
-            navigate("/login");
-          });
+          })
         }
       };
     return (

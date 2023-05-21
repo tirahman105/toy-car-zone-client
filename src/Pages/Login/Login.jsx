@@ -14,6 +14,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
+  console.log('login page ', location)
   const from = location.state?.from?.pathname || '/';
   
   const handleLogin = event => {
@@ -34,7 +35,7 @@ const Login = () => {
             )
             navigate(from), {replace: true};
         })
-        // .catch(err => setError(err.message));
+        
         .catch((err) => {
           setError(err.message);
           if (err.code === 'auth/user-not-found') {
