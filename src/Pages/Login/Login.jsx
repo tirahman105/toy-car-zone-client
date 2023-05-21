@@ -32,8 +32,19 @@ const Login = () => {
               'Login successful!',
               'success'
             )
+            navigate(from), {replace: true};
         })
-        .catch(err => setError(err.message));
+        // .catch(err => setError(err.message));
+        .catch((err) => {
+          setError(err.message);
+          if (err.code === 'auth/user-not-found') {
+            Swal.fire('Error!', 'User does not exist.', 'error');
+          } else if (err.code === 'auth/wrong-password') {
+            Swal.fire('Error!', 'Invalid password.', 'error');
+          } else {
+            Swal.fire('Error!', 'Login failed.', 'error');
+          }
+        });
 }
 
 
@@ -82,7 +93,7 @@ setTimeout(() => {
             
               <div className="form-control mt-6">
             
-             <div className='text-red-700 flex space-x-2 my-4 text-xl'> {error && <FaExclamation className='w-5 h-5  text-red-700'></FaExclamation>} <span>{error}</span> </div>
+             
                 <input type="submit" value="Login" className="btn btn-primary"/>
               </div>
              </form>

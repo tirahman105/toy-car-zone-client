@@ -1,6 +1,4 @@
 
-
-
 import { Link, useLoaderData } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
@@ -8,7 +6,7 @@ import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 
 
-const MyToyCard = ({ toy }) => {
+const MyToyCard = ({ toy , index}) => {
   useTitle('My Toys');
   const {
     _id,
@@ -48,8 +46,7 @@ const MyToyCard = ({ toy }) => {
               ).then(() => {
                 window.location.reload();
               });
-              // const remaining = toys.filter((toy) => toy._id !== _id);
-              // setToys(remaining);
+             
             }
           });
       }
@@ -61,6 +58,7 @@ const MyToyCard = ({ toy }) => {
   return (
     <>
       <tr>
+        <td>{index}</td>
         <td>{ToyName}</td>
         <td>{SubCategory}</td>
         <td>${Price}</td>

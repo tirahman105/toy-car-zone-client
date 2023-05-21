@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 
-const AllToyTable = ({ toy }) => {
+const AllToyTable = ({ toy, index }) => {
   useTitle('All Toys');
   const {
     _id,
@@ -17,38 +16,10 @@ const AllToyTable = ({ toy }) => {
     email,
   } = toy;
   return (
-    //    <div className="container mx-auto">
-    //      <div className="overflow-x-auto">
-
-    //      <div className="overflow-x-auto">
-    //   <table className="table w-full">
-    //     {/* head */}
-    //     <thead>
-    //       <tr>
-
-    //         <th>Name</th>
-    //         <th>Sub Category</th>
-    //         <th>Favorite Color</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       {/* row 1 */}
-    //       <tr>
-
-    //         <td>{ToyName}</td>
-    //         <td>{SubCategory}</td>
-    //         <td>{Price}</td>
-    //       </tr>
-
-    //     </tbody>
-    //   </table>
-    // </div>
-
-    //     </div>
-    //    </div>
+   
     <tr>
      
-      
+      <td>{index}.</td>
       <td>{ToyName}</td>
       <td>{SubCategory}</td>
       <td>${Price}</td>

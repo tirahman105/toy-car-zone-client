@@ -134,9 +134,9 @@ const MyToys = () => {
     // Sort the toys based on price
     const sortedToys = [...allToys].sort((a, b) => {
       if (sortOrder === "asc") {
-        return a.Price - b.Price; // Sort in ascending order
+        return a.Price - b.Price; 
       } else {
-        return b.Price - a.Price; // Sort in descending order
+        return b.Price - a.Price; 
       }
     });
 
@@ -148,51 +148,7 @@ const MyToys = () => {
     <div>
       <h1 className="text-3xl text-center mb-4">My Toys page: {allToys.length}</h1>
 
-      {/* <div className="flex">
-       
-          <div className="input-group">
-            <input
-              onChange={(e) => setSearchText(e.target.value)}
-              type="text"
-              placeholder="Search..."
-              className="input input-bordered"
-            />
-            <button onClick={handleSearch} className="btn btn-square">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <div className="dropdown">
-            <label tabIndex={0} className="btn m-1">
-              Sort by Price
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li onClick={() => handleSort("asc")}>
-                <a>Low to High</a>
-              </li>
-              <li onClick={() => handleSort("desc")}>
-                <a>High to Low</a>
-              </li>
-            </ul>
-          </div>
-        
-      </div> */}
+     
 
 <div className="flex justify-center my-4">
   <div className="flex">
@@ -244,6 +200,7 @@ const MyToys = () => {
         <table className="table w-full">
           <thead>
             <tr>
+              <th></th>
               <th>Toy name</th>
               <th>Sub Category</th>
               <th>Price</th>
@@ -254,8 +211,8 @@ const MyToys = () => {
             </tr>
           </thead>
           <tbody>
-            {allToys.map((toy) => (
-              <MyToyCard key={toy._id} toy={toy} />
+            {allToys.map((toy, index) => (
+              <MyToyCard key={toy._id} toy={toy} index={index + 1} />
             ))}
           </tbody>
         </table>

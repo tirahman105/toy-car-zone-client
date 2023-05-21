@@ -58,7 +58,25 @@ const SignUp = () => {
             logOut();
                 navigate('/login');
         })
-        .catch(error => console.log(error))
+       
+        .catch((error) => {
+          setError(error.message);
+          if (error.code === 'auth/user-not-found') {
+            Swal.fire('Error!', 'User does not exist.', 'error');
+          } else if (error.code === 'auth/wrong-password') {
+            Swal.fire('Error!', 'Invalid password.', 'error');
+          }
+          else if(error.code === 'auth/email-already-in-use') {
+            Swal.fire('Error!', 'User Already registered. Try to login!.', 'error');
+            
+            navigate('/login');
+          }
+          else {
+            Swal.fire('Error!', 'Sign up failed.', 'error');
+          }
+          form.reset();
+        });
+        
     
     }
 
@@ -73,7 +91,15 @@ const SignUp = () => {
         .catch(error => {
           console.log(error)
         })
-      }
+      
+}
+
+setTimeout(() => {
+  setError('');
+}, 2500);
+
+
+      
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">

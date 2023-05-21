@@ -16,7 +16,7 @@ const AllToys = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            
+                            <th>Sl</th>
                             <th>Toy name</th>
                             <th>Sub Category</th>
                             <th>Price</th>
@@ -27,9 +27,10 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                     {
-                            toys.map(toy => <AllToyTable
+                            toys.map((toy, index) => <AllToyTable
                                 key={toy._id}
                                 toy={toy}
+                                index={index +1}
                                
                             ></AllToyTable>)
                         }
