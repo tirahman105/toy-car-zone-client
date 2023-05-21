@@ -20,7 +20,7 @@ const MyToyCard = ({ toy }) => {
     SellerName,
     Pictureurl,
     Details,
-    email,
+    email
   } = toy;
 
   const handleDelete = () => {
