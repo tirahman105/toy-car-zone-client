@@ -69,16 +69,16 @@ const SingleToyCategory = ({singleToyCategory}) => {
   <figure className="overflow-hidden">
     <img className="w-full p-10 h-auto" src={Pictureurl} alt="Shoes" />
   </figure>
-  <div className="p-4">
+  <div className="p-4 px-10 border hover:bg-[#FDEEDC]">
     <h2 className="text-xl font-semibold mb-2">{ToyName}</h2>
     <p className="text-gray-600">
-      Price: <span className="font-medium">${Price}</span>
+      <span className="mr-2 font-bold">Price:</span> <span className="font-medium">${Price}</span>
     </p>
     <div className='flex '>
-      Ratings: 
-        <Rating style={{ maxWidth: 150 }} 
+      <span className="mr-2 font-bold">Ratings: </span>
+        <Rating style={{ maxWidth: 120 }} 
           value={Math.round(Ratings || 0)} readOnly />
-          <span>{Ratings}</span>
+          {/* <span>{Ratings}</span> */}
         </div>
 
     <div className="mt-4 flex justify-end">
