@@ -1,106 +1,14 @@
-
-// import React, { Component } from "react";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css"; 
-// import "slick-carousel/slick/slick-theme.css";
-// const ReviewSection = () => {
-
-
-//   const settings = {
-//     dots: true,
-//     infinite: false,
-//     speed: 500,
-//     slidesToShow: 3,
-//     slidesToScroll: 3,
-//     initialSlide: 0,
-//     responsive: [
-//       {
-//         breakpoint: 1024,
-//         settings: {
-//           slidesToShow: 2,
-//           slidesToScroll: 2,
-//           infinite: true,
-//           dots: true
-//         }
-//       },
-//       {
-//         breakpoint: 600,
-//         settings: {
-//           slidesToShow: 2,
-//           slidesToScroll: 2,
-//           initialSlide: 2
-//         }
-//       },
-//       {
-//         breakpoint: 480,
-//         settings: {
-//           slidesToShow: 1,
-//           slidesToScroll: 1
-//         }
-//       }
-//     ]
-//   };
-
-//   return (
-//     <div>
-//         <h2> Single Item</h2>
-//         <Slider {...settings}>
-//         <div className="card bg-base-100 shadow-xl">
-//   <figure><img className="w-1/2" src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="Shoes" /></figure>
-//   <div className="card-body">
-//     <h2 className="card-title">Shoes!</h2>
-//     <p>If a dog chews shoes whose shoes does he choose?</p>
-//     <div className="card-actions justify-end">
-//       <button className="btn btn-primary">Buy Now</button>
-//     </div>
-//   </div>
-// </div>
-//           <div>
-//             <h3>test</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-//           <div>
-//             <h3>test</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-//           <div>
-//             <h3>test</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-//           <div>
-//           <h3>test 2</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-//           <div>
-//           <h3>test 3</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-//           <div>
-//           <h3>test 4</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-//           <div>
-//           <h3>test 5</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-//           <div>
-//           <h3>test 5</h3>
-//             <img src="https://img.freepik.com/premium-vector/delivery-truck-icon-vector-fast-shipping-service-symbol_101884-297.jpg?w=2000" alt="" />
-//           </div>
-          
-//         </Slider>
-//       </div>
-//   );
-// };
-
-// export default ReviewSection;
-
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
 const ReviewSection = () => {
+  useEffect(()=> {
+    Aos.init({duration: 1500});
+  },[])
   const reviews = [
     {
       id: 1,
@@ -161,7 +69,7 @@ const ReviewSection = () => {
       <h2 className="text-2xl font-bold mb-4">Customer Reviews</h2>
       <Slider {...sliderSettings}>
         {reviews.map((review) => (
-          <div key={review.id} className="px-2">
+          <div key={review.id} className="px-2" data-aos="zoom-out-left">
             <div className="bg-white  hover:bg-[#FDEEDC] transition duration-300 ease-in-out rounded-lg shadow-md p-6">
               <figure className="mb-4 ">
                 <img

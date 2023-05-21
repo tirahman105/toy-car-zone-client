@@ -4,16 +4,11 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
-import { useState } from "react";
 import Swal from "sweetalert2";
 
 
 const MyToyCard = ({ toy }) => {
-  // const loadedUsers = useLoaderData();
-  // const [toys, setToys] = useState([]);
-  // const [control, setControl] = useState(false);
-  // const [showUpdateModal, setShowUpdateModal] = useState(false);
-  // const [toyIdToUpdate, setToyIdToUpdate] = useState(null);
+ 
   const {
     _id,
     ToyName,
