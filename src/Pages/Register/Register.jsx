@@ -5,13 +5,14 @@ import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
 import { updateProfile } from 'firebase/auth';
 import { FcGoogle } from "react-icons/fc";
+import useTitle from '../../hooks/useTitle';
 
 
 
 
 
 const SignUp = () => {
-
+  useTitle('Register')
     const {createUser, logOut ,signInWithGoogle} = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();

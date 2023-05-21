@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import useTitle from "../../hooks/useTitle";
 
 
 const UpdateMyToys = ({toy, handleToyUpdate}) => {
+  useTitle('Update Toy')
 
     const {user} = useContext(AuthContext);
     const {

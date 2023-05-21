@@ -4,9 +4,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { FcGoogle } from "react-icons/fc";
 import { FaExclamation } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 
 
 const Login = () => {
+  useTitle('Login')
   window.scrollTo(0,0);
   const {signIn ,signInWithGoogle} = useContext(AuthContext);
   const [error, setError] = useState('');

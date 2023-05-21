@@ -5,10 +5,11 @@ import { Link, useLoaderData } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 
 const MyToyCard = ({ toy }) => {
- 
+  useTitle('My Toys');
   const {
     _id,
     ToyName,

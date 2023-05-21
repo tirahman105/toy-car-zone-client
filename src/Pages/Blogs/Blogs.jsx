@@ -1,5 +1,8 @@
+import useTitle from "../../hooks/useTitle";
+
 const Blogs = () => {
     window.scrollTo(0,0);
+    useTitle('Blog')
   return (
     
     <div >
