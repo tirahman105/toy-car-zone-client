@@ -110,10 +110,10 @@ const Navbar = () => {
       </>
     ) : (
       <>
-        <button className="btn ml-2">
+        <button className="btn bg-[#D36F3F] hover:bg-blue-700 border-0 ml-2">
           <Link to="/login">Login</Link>
         </button>
-        <button className="btn ml-2 border-0 bg-blue-500 hover:bg-blue-700 text-white font-bold">
+        <button className="btn ml-2 border-0 bg-[#D36F3F] hover:bg-blue-700 text-white font-bold">
           <Link to="/register">Register</Link>
         </button>
       </>

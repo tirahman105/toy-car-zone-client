@@ -30,7 +30,7 @@ const AllToyCategory = () => {
             <div className="tabs flex justify-center align-middle">
               <div
                 onClick={() => handleTabClick("regular")}
-                className={`tab  tab-lifted regular ${
+                className={`tab tab-lifted regular ${
                   activeTab == "regular" ? " bg-red-500 text-white" : ""
                 }`}
               >

@@ -18,6 +18,7 @@ const ImgGallery = () => {
 
   return (
     <div className="container mx-auto py-4">
+      <h1 className="text-center text-3xl my-8">Image Gallery</h1>
       <div className="grid grid-cols-3 gap-4">
         {images.map((image, index) => (
           <div

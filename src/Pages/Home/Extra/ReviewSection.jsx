@@ -66,7 +66,7 @@ const ReviewSection = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Customer Reviews</h2>
+      <h2 className="text-2xl font-bold text-center my-8 mb-4">Customer Reviews</h2>
       <Slider {...sliderSettings}>
         {reviews.map((review) => (
           <div key={review.id} className="px-2" data-aos="zoom-out-left">

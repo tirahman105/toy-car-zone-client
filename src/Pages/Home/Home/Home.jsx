@@ -11,7 +11,7 @@ import ImgGallery from "../ImgGallery/ImgGallery";
 const Home = () => {
     useTitle('Home');
     return (
-        <div>
+        <div className="overflow-hidden">
             <Banner></Banner>
             <Feature></Feature>
             
